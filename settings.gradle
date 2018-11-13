@@ -1,1 +1,1 @@
-include ':01_Triangle'
+include ':01_Triangle', ':02_Rectangle'
