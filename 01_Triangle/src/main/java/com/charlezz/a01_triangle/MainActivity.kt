@@ -2,6 +2,7 @@ package com.charlezz.a01_triangle
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.charlezz.a01_triangle.R.id.gl_surface_view
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

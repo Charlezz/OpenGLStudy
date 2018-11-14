@@ -1,4 +1,4 @@
-package com.charlezz.a01_triangle
+package com.charlezz.a02_rectangle
 
 import android.opengl.GLES20
 import android.util.Log
