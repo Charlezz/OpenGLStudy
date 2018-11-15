@@ -21,7 +21,7 @@ class QuadRenderer : GLSurfaceView.Renderer {
             "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);" +
             "}"
 
-    val triangleVertices: Buffer = GlUtil.createFloatBuffer(arrayOf(
+    val quadVertices: Buffer = GlUtil.createFloatBuffer(arrayOf(
             -0.5f, 0.5f,
             -0.5f, -0.5f,
             0.5f, -0.5f,
@@ -38,10 +38,9 @@ class QuadRenderer : GLSurfaceView.Renderer {
         glClearColor(1.0f,1.0f,1.0f, 1.0f)
         glClear(GL_DEPTH_BUFFER_BIT or GL_COLOR_BUFFER_BIT)
         glUseProgram(program)
-        glVertexAttribPointer(vPositionHandle,2,GL_FLOAT, false, 0, triangleVertices)
+        glVertexAttribPointer(vPositionHandle,2,GL_FLOAT, false, 0, quadVertices)
         glEnableVertexAttribArray(vPositionHandle)
-        glDrawArrays(GL_TRIANGLES, 0, 3)
-        glDrawArrays(GL_TRIANGLES, 3, 3)
+        glDrawArrays(GL_TRIANGLES, 0, 6)
     }
 
     override fun onSurfaceChanged(gl: GL10, width: Int, height: Int) {

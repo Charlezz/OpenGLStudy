@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         gl_surface_view.setEGLContextClientVersion(2)
-//        gl_surface_view.setRenderer(QuadRenderer())
-        gl_surface_view.setRenderer(QuadRenderer2())
+        gl_surface_view.setRenderer(QuadRenderer())
+//        gl_surface_view.setRenderer(QuadRenderer2())
     }
 }
