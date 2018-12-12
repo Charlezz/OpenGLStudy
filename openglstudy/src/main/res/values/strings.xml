@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OpenGLStudy</string>
+    <string name="triangle">삼각형</string>
+</resources>
