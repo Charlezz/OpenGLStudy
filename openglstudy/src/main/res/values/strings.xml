@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">OpenGLStudy</string>
     <string name="triangle">삼각형</string>
+    <string name="rectangle">사각형</string>
+    <string name="cube">큐브</string>
 </resources>

@@ -22,7 +22,7 @@ public class GlUtil {
         Matrix.setIdentityM(IDENTITY_MATRIX, 0);
     }
 
-    private static final int SIZEOF_FLOAT = 4;
+    public static final int SIZEOF_FLOAT = 4;
 
 
     private GlUtil() {}     // do not instantiate

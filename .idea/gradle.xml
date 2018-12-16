@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/02_Rectangle" />
             <option value="$PROJECT_DIR$/openglstudy" />
           </set>
         </option>

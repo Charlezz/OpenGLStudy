@@ -1,28 +1,25 @@
 package com.charlezz.openglstudy.feature.main;
 
-import android.support.annotation.StringRes;
+import com.charlezz.openglstudy.feature.main.shape.RendererType;
 
 public class MainMenu {
-    @StringRes
-    private int name;
-    private Class activityClass;
     private Navigator navigator;
+    private RendererType rendererType;
 
-    public MainMenu(@StringRes int nameResId, Class activityClass, Navigator navigator) {
-        this.name = nameResId;
-        this.activityClass = activityClass;
+    public MainMenu(RendererType rendererType, Navigator navigator) {
+        this.rendererType = rendererType;
         this.navigator = navigator;
     }
 
     public void onMenuClicked(){
-        navigator.onMenuClicked(activityClass);
+        navigator.onMenuClicked(rendererType);
     }
 
     public int getName() {
-        return name;
+        return rendererType.getName();
     }
 
     interface Navigator{
-        void onMenuClicked(Class activityClass);
+        void onMenuClicked(RendererType rendererType);
     }
 }

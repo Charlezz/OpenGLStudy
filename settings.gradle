@@ -1,1 +1,1 @@
-include ':02_Rectangle', ':openglstudy'
+include ':openglstudy'

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".feature.main.triangle.ShapeActivity">
+        <activity android:name=".feature.main.shape.ShapeActivity">
         </activity>
     </application>
 
