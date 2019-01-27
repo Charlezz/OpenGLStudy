@@ -5,9 +5,9 @@ import java.util.concurrent.TimeUnit;
 import android.opengl.Matrix;
 import android.os.SystemClock;
 
-import com.charlezz.openglstudy.feature.main.shape.Shape;
+import com.charlezz.openglstudy.feature.main.shape.SolidColorShape;
 
-public class Cube extends Shape {
+public class Cube extends SolidColorShape {
     @Override
     protected String getVertexShader() {
         return "uniform mat4 uMVPMatrix;" +

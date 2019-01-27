@@ -1,9 +1,9 @@
 package com.charlezz.openglstudy.feature.main.shape.rectangle;
 
 
-import com.charlezz.openglstudy.feature.main.shape.Shape;
+import com.charlezz.openglstudy.feature.main.shape.SolidColorShape;
 
-public class Rectangle extends Shape {
+public class Rectangle extends SolidColorShape {
 
     @Override
     protected String getVertexShader() {

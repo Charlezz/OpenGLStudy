@@ -21,25 +21,22 @@ public abstract class Shape {
 
     protected abstract byte[] getIndices();
 
-    protected abstract float[] getColors();
-
     protected abstract String getPositionHandleName();
 
     protected abstract String getColorHandleName();
 
     protected abstract String getMVPMatHandleName();
 
-    private int program;
-    private static final int SIZE_OF_FLOAT = 4;
-    private static final int VALUES_PER_COLOR = 4;
-    private int vertexStride = getCoordsPerVertex() * SIZE_OF_FLOAT;
-    private int colorStride = VALUES_PER_COLOR * SIZE_OF_FLOAT;
-    private final FloatBuffer vertexBuffer;
-    private final ByteBuffer indexBuffer;
-    private final FloatBuffer colorBuffer;
-    private final int positionHandle;
-    private final int colorHandle;
-    private final int mvpMatrixHandle;
+    protected int program;
+    protected static final int SIZE_OF_FLOAT = 4;
+    protected static final int VALUES_PER_COLOR = 4;
+    protected int vertexStride = getCoordsPerVertex() * SIZE_OF_FLOAT;
+    protected int colorStride = VALUES_PER_COLOR * SIZE_OF_FLOAT;
+    protected final FloatBuffer vertexBuffer;
+    protected final ByteBuffer indexBuffer;
+    protected final int positionHandle;
+    protected final int colorHandle;
+    protected final int mvpMatrixHandle;
 
     protected final float[] modelMatrix = new float[16];
     protected final float[] mvpMatrix = new float[16];
@@ -50,12 +47,6 @@ public abstract class Shape {
         vertexBuffer = byteBuffer.asFloatBuffer();
         vertexBuffer.put(getVertices());
         vertexBuffer.position(0);
-
-        byteBuffer = ByteBuffer.allocateDirect(getColors().length* SIZE_OF_FLOAT);
-        byteBuffer.order(ByteOrder.nativeOrder());
-        colorBuffer = byteBuffer.asFloatBuffer();
-        colorBuffer.put(getColors());
-        colorBuffer.position(0);
 
         indexBuffer = ByteBuffer.allocateDirect(getIndices().length);
         indexBuffer.put(getIndices());
@@ -75,26 +66,6 @@ public abstract class Shape {
         Matrix.setIdentityM(mvpMatrix, 0);
     }
 
-    public void draw(float[] matrix){
-        GLES20.glUseProgram(program);
-        GLES20.glEnableVertexAttribArray(positionHandle);
-        GLES20.glVertexAttribPointer(positionHandle, getCoordsPerVertex(), GLES20.GL_FLOAT, false, vertexStride, vertexBuffer);
-
-        GLES20.glEnableVertexAttribArray(colorHandle);
-        GLES20.glVertexAttribPointer(colorHandle, SIZE_OF_FLOAT, GLES20.GL_FLOAT, false, colorStride, colorBuffer);
-
-        Matrix.multiplyMM(mvpMatrix, 0, matrix, 0, modelMatrix,0);
-        GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, mvpMatrix, 0);
-
-        GLES20.glDrawElements(GLES20.GL_TRIANGLES, getIndices().length, GLES20.GL_UNSIGNED_BYTE, indexBuffer);
-
-//        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);
-//        GLES20.glDisableVertexAttribArray(positionHandle);
-//        GLES20.glDisableVertexAttribArray(mvpMatrixHandle);
-    }
-
-
-
-
+    public abstract  void draw(float[] matrix);
 
 }

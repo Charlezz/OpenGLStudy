@@ -1,8 +1,8 @@
 package com.charlezz.openglstudy.feature.main.shape.triangle;
 
-import com.charlezz.openglstudy.feature.main.shape.Shape;
+import com.charlezz.openglstudy.feature.main.shape.SolidColorShape;
 
-public class Triangle extends Shape {
+public class Triangle extends SolidColorShape {
     @Override
     protected String getVertexShader() {
         return "uniform mat4 uMVPMatrix;" +

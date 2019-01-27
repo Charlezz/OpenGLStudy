@@ -10,6 +10,7 @@ import com.charlezz.openglstudy.databinding.ActivityMainBinding;
 import dagger.android.support.DaggerAppCompatActivity;
 
 public class MainActivity extends DaggerAppCompatActivity {
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     @Inject
     ActivityMainBinding binding;

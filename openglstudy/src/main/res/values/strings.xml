@@ -3,4 +3,5 @@
     <string name="triangle">삼각형</string>
     <string name="rectangle">사각형</string>
     <string name="cube">큐브</string>
+    <string name="rectangle_with_texture">텍스쳐 있는 사각형</string>
 </resources>
