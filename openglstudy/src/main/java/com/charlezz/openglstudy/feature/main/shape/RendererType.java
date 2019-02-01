@@ -1,6 +1,5 @@
 package com.charlezz.openglstudy.feature.main.shape;
 
-import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.support.annotation.StringRes;
 
@@ -24,19 +23,19 @@ public enum RendererType {
             return new RectangleRenderer();
         }
     },
-    Cube(R.string.cube){
-        @Override
-        GLSurfaceView.Renderer getRenderer() {
-            return new CubeRenderer();
-        }
-    },
     TextureRectangle(R.string.rectangle_with_texture){
         @Override
         GLSurfaceView.Renderer getRenderer() {
             return new TextureRectRenderer();
         }
-    }
-    ;
+    },
+    Cube(R.string.cube){
+        @Override
+        GLSurfaceView.Renderer getRenderer() {
+            return new CubeRenderer();
+        }
+    };
+
 
 
     @StringRes
