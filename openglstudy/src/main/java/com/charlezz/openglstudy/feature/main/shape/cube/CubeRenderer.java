@@ -44,7 +44,7 @@ public class CubeRenderer implements GLSurfaceView.Renderer {
                 -1.0f, 1.0f,
                 3.0f, 7.0f);
         Matrix.setLookAtM(viewMatrix, 0,
-                0.0f, 0.0f, -4.0f,
+                0.0f, 0.0f, 4.0f,
                 0.0f, 0.0f, 0.0f,
                 0.0f, 1.0f, 0.0f);
 

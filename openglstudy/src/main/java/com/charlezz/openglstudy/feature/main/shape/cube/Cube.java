@@ -100,13 +100,15 @@ public class Cube extends SolidColorShape {
     private int REFRESH_RATE_FPS = 60;
     private long FRAME_TIME_MILLIS = TimeUnit.SECONDS.toMillis(1) / REFRESH_RATE_FPS;
     private float rotation = 0f;
-    private float ROTATION_INCREMENT = 0.6f;
+    private float ROTATION_INCREMENT = 1f;
 
     private void updateRotation() {
+        long currentTime = SystemClock.elapsedRealtime();
         if (lastUpdateMillis != 0L) {
-            long factor = (SystemClock.elapsedRealtime() - lastUpdateMillis) / FRAME_TIME_MILLIS;
+            long factor = (lastUpdateMillis-currentTime) / FRAME_TIME_MILLIS;
             rotation += ROTATION_INCREMENT * factor;
+            rotation = rotation%360;
         }
-        lastUpdateMillis = SystemClock.elapsedRealtime();
+        lastUpdateMillis = currentTime;
     }
 }
