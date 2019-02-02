@@ -1,7 +1,5 @@
 package com.charlezz.openglstudy.feature.main;
 
-import com.charlezz.openglstudy.feature.main.shape.RendererType;
-
 public class MainMenu {
     private Navigator navigator;
     private RendererType rendererType;

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import android.opengl.Matrix;
 import android.os.SystemClock;
 
-import com.charlezz.openglstudy.feature.main.shape.SolidColorShape;
+import com.charlezz.openglstudy.feature.main.shape.base.SolidColorShape;
 
 public class Cube extends SolidColorShape {
     @Override
@@ -90,8 +90,8 @@ public class Cube extends SolidColorShape {
     }
 
     @Override
-    public void draw(float[] matrix) {
-        super.draw(matrix);
+    public void onDraw(float[] matrix) {
+        super.onDraw(matrix);
         updateRotation();
         Matrix.setRotateM(modelMatrix,0, rotation, 1.0f, 1.0f, 1.0f);
     }

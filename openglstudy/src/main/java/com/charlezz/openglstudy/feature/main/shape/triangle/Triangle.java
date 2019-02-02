@@ -1,6 +1,6 @@
 package com.charlezz.openglstudy.feature.main.shape.triangle;
 
-import com.charlezz.openglstudy.feature.main.shape.SolidColorShape;
+import com.charlezz.openglstudy.feature.main.shape.base.SolidColorShape;
 
 public class Triangle extends SolidColorShape {
     @Override

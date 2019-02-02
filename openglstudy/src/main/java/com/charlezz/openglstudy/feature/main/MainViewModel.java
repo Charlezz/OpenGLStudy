@@ -4,7 +4,6 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.content.Intent;
 
-import com.charlezz.openglstudy.feature.main.shape.RendererType;
 import com.charlezz.openglstudy.feature.main.shape.ShapeActivity;
 
 import java.util.ArrayList;

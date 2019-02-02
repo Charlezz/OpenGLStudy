@@ -1,4 +1,4 @@
-package com.charlezz.openglstudy.feature.main.shape;
+package com.charlezz.openglstudy.feature.main.shape.base;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -8,20 +8,14 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 
 public abstract class SolidColorShape extends Shape {
+    protected abstract String getColorHandleName();
     protected abstract float[] getColors();
-    protected final FloatBuffer colorBuffer;
+    protected int colorHandle;
 
-    public SolidColorShape() {
-        super();
-        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(getColors().length * SIZE_OF_FLOAT);
-        byteBuffer.order(ByteOrder.nativeOrder());
-        colorBuffer = byteBuffer.asFloatBuffer();
-        colorBuffer.put(getColors());
-        colorBuffer.position(0);
-    }
+    protected FloatBuffer colorBuffer;
 
     @Override
-    public void draw(float[] matrix) {
+    public void onDraw(float[] matrix) {
         GLES20.glUseProgram(program);
         GLES20.glEnableVertexAttribArray(positionHandle);
         GLES20.glVertexAttribPointer(positionHandle, getCoordsPerVertex(), GLES20.GL_FLOAT, false, vertexStride, vertexBuffer);
@@ -33,5 +27,16 @@ public abstract class SolidColorShape extends Shape {
         GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, mvpMatrix, 0);
 
         GLES20.glDrawElements(GLES20.GL_TRIANGLES, getIndices().length, GLES20.GL_UNSIGNED_BYTE, indexBuffer);
+    }
+
+    @Override
+    public void onPrepare(int width, int height) {
+        super.onPrepare(width, height);
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(getColors().length * SIZE_OF_FLOAT);
+        byteBuffer.order(ByteOrder.nativeOrder());
+        colorHandle = GLES20.glGetAttribLocation(program, getColorHandleName());
+        colorBuffer = byteBuffer.asFloatBuffer();
+        colorBuffer.put(getColors());
+        colorBuffer.position(0);
     }
 }

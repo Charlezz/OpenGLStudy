@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import android.os.Bundle;
 
 import com.charlezz.openglstudy.databinding.ActivityShapeBinding;
+import com.charlezz.openglstudy.feature.main.RendererType;
 
 import dagger.android.support.DaggerAppCompatActivity;
 

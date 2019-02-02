@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import com.charlezz.openglstudy.R;
 import com.charlezz.openglstudy.databinding.ActivityShapeBinding;
 import com.charlezz.openglstudy.di.ActivityScope;
+import com.charlezz.openglstudy.feature.main.RendererType;
 
 import dagger.Module;
 import dagger.Provides;
