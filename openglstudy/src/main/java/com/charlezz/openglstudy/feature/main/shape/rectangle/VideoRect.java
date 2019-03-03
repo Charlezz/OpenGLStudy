@@ -28,8 +28,6 @@ public class VideoRect
     public VideoRect(String path){
         super();
 
-        mediaPlayer = new MediaPlayer();
-
         try {
             mediaPlayer.setDataSource(path);
             mediaPlayer.prepare();
@@ -49,8 +47,8 @@ public class VideoRect
 
 
     @Override
-    public void onPrepare(int width, int height) {
-        super.onPrepare(width, height);
+    public void onSurfaceChanged(int width, int height) {
+        super.onSurfaceChanged(width, height);
 
         ByteBuffer bb = ByteBuffer.allocateDirect(getUVs().length*SIZE_OF_FLOAT);
         bb.order(ByteOrder.nativeOrder());
@@ -62,8 +60,8 @@ public class VideoRect
 
 
     @Override
-    public void onDraw(float[] matrix) {
-        super.onDraw(matrix);
+    public void onDrawFrame(float[] matrix) {
+        super.onDrawFrame(matrix);
 
         try {
             semaphore.tryAcquire(16, TimeUnit.MILLISECONDS);
@@ -105,9 +103,6 @@ public class VideoRect
 
         Matrix.setIdentityM(modelMatrix, 0);
         Matrix.scaleM(modelMatrix, 0, 1, (float)mediaPlayer.getVideoHeight()/(float)mediaPlayer.getVideoWidth(),0);
-
-
-
     }
 
     @Override

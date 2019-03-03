@@ -18,7 +18,7 @@ public abstract class TextureShape extends Shape {
     protected int uvHandle;
 
     @Override
-    public void onDraw(float[] matrix) {
+    public void onDrawFrame(float[] matrix) {
         GLES20.glUseProgram(program);
         GLES20.glEnableVertexAttribArray(positionHandle);
         GLES20.glVertexAttribPointer(positionHandle, getCoordsPerVertex(), GLES20.GL_FLOAT, false, vertexStride, vertexBuffer);
@@ -34,8 +34,8 @@ public abstract class TextureShape extends Shape {
     }
 
     @Override
-    public void onPrepare(int width, int height) {
-        super.onPrepare(width, height);
+    public void onSurfaceChanged(int width, int height) {
+        super.onSurfaceChanged(width, height);
         uvHandle = GLES20.glGetAttribLocation(program, getUVHandleName());
         ByteBuffer bb = ByteBuffer.allocateDirect(getUVs().length*SIZE_OF_FLOAT);
         bb.order(ByteOrder.nativeOrder());

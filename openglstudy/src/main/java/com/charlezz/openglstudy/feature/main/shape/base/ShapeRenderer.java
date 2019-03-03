@@ -27,6 +27,7 @@ public class ShapeRenderer<T extends Shape> implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+        item.onSurfaceCreated();
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         GLES20.glClearDepthf(1.0f);
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
@@ -51,12 +52,28 @@ public class ShapeRenderer<T extends Shape> implements GLSurfaceView.Renderer {
 
         Matrix.multiplyMM(vpMatrix, 0, projectionMatrix, 0, viewMatrix, 0);
 
-        item.onPrepare(width, height);
+        item.onSurfaceChanged(width, height);
     }
 
     @Override
     public void onDrawFrame(GL10 gl) {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
-        item.onDraw(vpMatrix);
+        item.onDrawFrame(vpMatrix);
+    }
+
+    public T getItem(){
+        return item;
+    }
+
+    public void onPause(){
+        item.onPause();
+    }
+
+    public void onResume(){
+        item.onResume();
+    }
+
+    public void onDestroy(){
+        item.onDestroy();
     }
 }

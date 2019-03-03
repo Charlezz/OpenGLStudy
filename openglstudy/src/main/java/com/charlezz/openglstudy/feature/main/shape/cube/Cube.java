@@ -90,8 +90,8 @@ public class Cube extends SolidColorShape {
     }
 
     @Override
-    public void onDraw(float[] matrix) {
-        super.onDraw(matrix);
+    public void onDrawFrame(float[] matrix) {
+        super.onDrawFrame(matrix);
         updateRotation();
         Matrix.setRotateM(modelMatrix,0, rotation, 1.0f, 1.0f, 1.0f);
     }

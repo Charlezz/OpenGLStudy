@@ -1,12 +1,12 @@
 package com.charlezz.openglstudy.feature.main;
 
+import java.util.ArrayList;
+
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.content.Intent;
 
 import com.charlezz.openglstudy.feature.main.shape.ShapeActivity;
-
-import java.util.ArrayList;
 
 public class MainViewModel extends AndroidViewModel implements MainMenu.Navigator {
 

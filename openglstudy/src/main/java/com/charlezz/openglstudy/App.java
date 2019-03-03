@@ -1,5 +1,6 @@
 package com.charlezz.openglstudy;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.charlezz.openglstudy.di.DaggerAppComponent;
@@ -9,9 +10,14 @@ import dagger.android.support.DaggerApplication;
 
 public class App extends DaggerApplication {
 
-    private static Context context;
+    private static App context;
+
 
     public static Context getContext(){
+        return context;
+    }
+
+    public static Application getApplication(){
         return context;
     }
 

@@ -15,7 +15,7 @@ public abstract class SolidColorShape extends Shape {
     protected FloatBuffer colorBuffer;
 
     @Override
-    public void onDraw(float[] matrix) {
+    public void onDrawFrame(float[] matrix) {
         GLES20.glUseProgram(program);
         GLES20.glEnableVertexAttribArray(positionHandle);
         GLES20.glVertexAttribPointer(positionHandle, getCoordsPerVertex(), GLES20.GL_FLOAT, false, vertexStride, vertexBuffer);
@@ -30,8 +30,8 @@ public abstract class SolidColorShape extends Shape {
     }
 
     @Override
-    public void onPrepare(int width, int height) {
-        super.onPrepare(width, height);
+    public void onSurfaceChanged(int width, int height) {
+        super.onSurfaceChanged(width, height);
         ByteBuffer byteBuffer = ByteBuffer.allocateDirect(getColors().length * SIZE_OF_FLOAT);
         byteBuffer.order(ByteOrder.nativeOrder());
         colorHandle = GLES20.glGetAttribLocation(program, getColorHandleName());

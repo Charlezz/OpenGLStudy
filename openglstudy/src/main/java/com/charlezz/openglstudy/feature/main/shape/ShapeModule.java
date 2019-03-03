@@ -2,11 +2,7 @@ package com.charlezz.openglstudy.feature.main.shape;
 
 import static com.charlezz.openglstudy.feature.main.shape.ShapeActivity.EXTRA_RENDERER_TYPE;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
 
 import com.charlezz.openglstudy.R;
 import com.charlezz.openglstudy.databinding.ActivityShapeBinding;
@@ -26,14 +22,8 @@ public abstract class ShapeModule {
 
     @Provides
     @ActivityScope
-    static ShapeViewModel provideViewModel(final ShapeActivity activity, final RendererType rendererType){
-        return ViewModelProviders.of(activity, new ViewModelProvider.Factory() {
-            @NonNull
-            @Override
-            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-                return (T) new ShapeViewModel(rendererType);
-            }
-        }).get(ShapeViewModel.class);
+    static ShapeViewModel provideViewModel(RendererType rendererType){
+        return new ShapeViewModel(rendererType);
     }
 
     @Provides

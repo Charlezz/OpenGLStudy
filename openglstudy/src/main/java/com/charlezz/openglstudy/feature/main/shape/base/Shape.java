@@ -23,10 +23,9 @@ public abstract class Shape {
 
     protected abstract String getPositionHandleName();
 
-
     protected abstract String getMVPMatHandleName();
 
-    protected abstract void onDraw(float[] matrix);
+    protected abstract void onDrawFrame(float[] matrix);
 
     protected int program;
     protected static final int SIZE_OF_FLOAT = 4;
@@ -53,11 +52,9 @@ public abstract class Shape {
         indexBuffer.position(0);
     }
 
-    public void onPrepare(int width, int height){
-        program = GlUtil.createProgram(getVertexShader(), getFragmentShader());
+    public void onSurfaceChanged(int width, int height){
 
         positionHandle = GLES20.glGetAttribLocation(program, getPositionHandleName());
-
         mvpMatrixHandle = GLES20.glGetUniformLocation(program, getMVPMatHandleName());
 
         GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, mvpMatrix, 0);
@@ -65,5 +62,19 @@ public abstract class Shape {
         Matrix.setIdentityM(mvpMatrix, 0);
     }
 
+    public void onSurfaceCreated(){
+        program = GlUtil.createProgram(getVertexShader(), getFragmentShader());
+    }
 
+    public void onResume(){
+
+    }
+
+    public void onPause(){
+
+    }
+
+    public void onDestroy(){
+
+    }
 }
